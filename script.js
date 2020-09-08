@@ -226,8 +226,8 @@ function gameRound1() {
       checkRed();
       deleteCard();
       nextPlayerRound();
-      // round1.style.display = "none";
-      // round2.style.display = "inline";
+      round1.style.display = "none";
+      round2.style.display = "block";
     }
   }
 
@@ -242,8 +242,8 @@ function gameRound1() {
       checkBlack();
       deleteCard();
       nextPlayerRound();
-      // round1.style.display = "none";
-      // round2.style.display = "inline";
+      round1.style.display = "none";
+      round2.style.display = "block";
     }
   }
 }

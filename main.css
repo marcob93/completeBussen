@@ -82,10 +82,37 @@ body {
 }
 
 .allButton {
-  padding: 1em 1.5em;
-  font-size: 2.5vh;
-  margin: 3px;
+  font-family: 'Patua One',
+    cursive;
+  font-size: 1.5vw;
+  background-color: #A7512E;
+  border: none;
+  padding: 30px 50px;
   margin-bottom: 20px;
+  margin-right: 20px;
+  color: white;
+}
+
+#btnRed {
+  background: rgb(255, 64, 58);
+}
+
+#btnBlack {
+  background: rgb(56, 56, 56);
+  background: -moz-linear-gradient(90deg, rgba(56, 56, 56, 1) 0%, rgba(50, 50, 50, 1) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(56, 56, 56, 1) 0%, rgba(50, 50, 50, 1) 100%);
+  background: linear-gradient(90deg, rgba(56, 56, 56, 1) 0%, rgba(50, 50, 50, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#383838", endColorstr="#323232", GradientType=1);
+}
+
+#btnHigher {
+  background: rgb(72, 202, 228);
+
+}
+
+#btnLower {
+  background: rgb(209, 158, 106);
+
 }
 
 .round1 {
