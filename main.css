@@ -124,6 +124,19 @@ body {
 
 #btnLower {
   background: rgb(209, 158, 106);
+}
+
+#btnInside {
+  background: #f12711;
+  background: -webkit-linear-gradient(to right, #f5af19, #f12711);
+  background: linear-gradient(to right, #f5af19, #f12711);
+}
+
+#btnOutside {
+  background: #00c6ff;
+  background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+
 
 }
 

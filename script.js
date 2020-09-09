@@ -63,6 +63,8 @@ function theGameBegins() {
   document.getElementById("btnBlack").addEventListener("click", gameRound1);
   document.getElementById("btnHigher").addEventListener("click", gameRound2);
   document.getElementById("btnLower").addEventListener("click", gameRound2);
+  document.getElementById("btnInside").addEventListener("click", gameRound3);
+  document.getElementById("btnOutside").addEventListener("click", gameRound3);
 }
 
 function card(suiteDeck, valueDeck) {
@@ -165,14 +167,14 @@ function createContentNavigatie() {
   round2.appendChild(buttonLower);
 
   let buttonOutside = document.createElement("BUTTON");
-  let buttonOutSideText = document.createTextNode("Buiten");
+  let buttonOutSideText = document.createTextNode("Er binnen");
   buttonOutside.appendChild(buttonOutSideText);
   buttonOutside.classList.add("allButton");
-  buttonOutside.setAttribute("id", "btnOutside");
+  buttonOutside.setAttribute("id", "btnInside");
   round3.appendChild(buttonOutside);
 
   let buttonBetween = document.createElement("BUTTON");
-  let buttonBetweenText = document.createTextNode("Tussen");
+  let buttonBetweenText = document.createTextNode("Er buiten ");
   buttonBetween.appendChild(buttonBetweenText);
   buttonBetween.classList.add("allButton");
   buttonBetween.setAttribute("id", "btnOutside");
