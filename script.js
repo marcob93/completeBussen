@@ -188,28 +188,28 @@ function createContentNavigatie() {
   let buttonDiamonds = document.createElement("BUTTON");
   let buttonDiamondsText = document.createTextNode("Ruiten");
   buttonDiamonds.appendChild(buttonDiamondsText);
-  buttonDiamonds.classList.add("allButton");
+  buttonDiamonds.classList.add("allButtonFive");
   buttonDiamonds.setAttribute("id", "btnDiamonds");
   round4.appendChild(buttonDiamonds);
 
   let buttonSpades = document.createElement("BUTTON");
   let buttonSpadesText = document.createTextNode("Schoppen");
   buttonSpades.appendChild(buttonSpadesText);
-  buttonSpades.classList.add("allButton");
+  buttonSpades.classList.add("allButtonFive");
   buttonSpades.setAttribute("id", "btnSpades");
   round4.appendChild(buttonSpades);
 
   let buttonClubs = document.createElement("BUTTON");
   let buttonClubsText = document.createTextNode("Klaveren");
   buttonClubs.appendChild(buttonClubsText);
-  buttonClubs.classList.add("allButton");
+  buttonClubs.classList.add("allButtonFive");
   buttonClubs.setAttribute("id", "btnClubs");
   round4.appendChild(buttonClubs);
 
   let buttonRainbow = document.createElement("BUTTON");
   let buttonRainbowText = document.createTextNode("Rainbow");
   buttonRainbow.appendChild(buttonRainbowText);
-  buttonRainbow.classList.add("allButton");
+  buttonRainbow.classList.add("allButtonFive");
   buttonRainbow.setAttribute("id", "btnRainbow");
   round4.appendChild(buttonRainbow);
 }
@@ -254,9 +254,37 @@ function gameRound2() {
   if (this.id == "btnHigher") {
     if (activePlayerCount < playerCount) {
       showingCard();
+      checkHigher();
+      deleteCard();
+      nextPlayer();
+    } else if (activePlayerCount == playerCount) {
+      showingCard();
+      checkHigher();
+      deleteCard();
+      nextPlayerRound();
+      round2.style.display = "none";
+      round3.style.display = "block";
+    }
+  }
+
+  if (this.id == "btnLower") {
+    if (activePlayerCount < playerCount) {
+      showingCard();
+      checkLower();
+      deleteCard();
+      nextPlayer();
+    } else if (activePlayerCount == playerCount) {
+      showingCard();
+      checkLower();
+      deleteCard();
+      nextPlayerRound();
+      round2.style.display = "none";
+      round3.style.display = "block";
     }
   }
 }
+
+function gameRound3() {}
 
 function checkRed() {
   if (
@@ -289,17 +317,33 @@ function checkBlack() {
 }
 
 function checkHigher() {
-  if (lastCard.valueDeck > player[lastPlayerCount].cards[0].valueDeck) {
-    console.log("higher");
-  } else if (lastCard.valueDeck == player[lastPlayerCount].cards[0].valueDeck) {
-    console.log("same");
+  if (lastCard.valueDeck > player[activePlayerCount].cards[0].valueDeck) {
+    document.getElementById(activePlayerCount).style.backgroundColor =
+      "#a3ffa9";
+  } else if (
+    lastCard.valueDeck == player[activePlayerCount].cards[0].valueDeck
+  ) {
+    document.getElementById(activePlayerCount).style.backgroundColor =
+      "#ff7373";
   } else {
-    console.log("lower");
+    document.getElementById(activePlayerCount).style.backgroundColor =
+      "#ff7373";
   }
 }
 
 function checkLower() {
-  console.log("fuck this");
+  if (lastCard.valueDeck < player[activePlayerCount].cards[0].valueDeck) {
+    document.getElementById(activePlayerCount).style.backgroundColor =
+      "#a3ffa9";
+  } else if (
+    lastCard.valueDeck == player[activePlayerCount].cards[0].valueDeck
+  ) {
+    document.getElementById(activePlayerCount).style.backgroundColor =
+      "#ff7373";
+  } else {
+    document.getElementById(activePlayerCount).style.backgroundColor =
+      "#ff7373";
+  }
 }
 
 function showingCard() {
