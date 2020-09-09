@@ -61,6 +61,8 @@ function theGameBegins() {
 
   document.getElementById("btnRed").addEventListener("click", gameRound1);
   document.getElementById("btnBlack").addEventListener("click", gameRound1);
+  document.getElementById("btnHigher").addEventListener("click", gameRound2);
+  document.getElementById("btnLower").addEventListener("click", gameRound2);
 }
 
 function card(suiteDeck, valueDeck) {
@@ -248,6 +250,14 @@ function gameRound1() {
   }
 }
 
+function gameRound2() {
+  if (this.id == "btnHigher") {
+    if (activePlayerCount < playerCount) {
+      showingCard();
+    }
+  }
+}
+
 function checkRed() {
   if (
     //heart
@@ -277,6 +287,21 @@ function checkBlack() {
       "#ff7373";
   }
 }
+
+function checkHigher() {
+  if (lastCard.valueDeck > player[lastPlayerCount].cards[0].valueDeck) {
+    console.log("higher");
+  } else if (lastCard.valueDeck == player[lastPlayerCount].cards[0].valueDeck) {
+    console.log("same");
+  } else {
+    console.log("lower");
+  }
+}
+
+function checkLower() {
+  console.log("fuck this");
+}
+
 function showingCard() {
   randomItem = deck[Math.floor(Math.random() * deck.length)];
   tagIMG = document.createElement("img");
