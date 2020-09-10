@@ -286,7 +286,39 @@ function gameRound2() {
   }
 }
 
-function gameRound3() {}
+function gameRound3() {
+  if (this.id == "btnInside") {
+    if (activePlayerCount < playerCount) {
+      showingCard();
+
+      deleteCard();
+      nextPlayer();
+    } else if (activePlayerCount == playerCount) {
+      showingCard();
+
+      deleteCard();
+      nextPlayerRound();
+      round3.style.display = "none";
+      round4.style.display = "block";
+    }
+  }
+
+  if (this.id == "btnOutside") {
+    if (activePlayerCount < playerCount) {
+      showingCard();
+
+      deleteCard();
+      nextPlayer();
+    } else if (activePlayerCount == playerCount) {
+      showingCard();
+
+      deleteCard();
+      nextPlayerRound();
+      round3.style.display = "none";
+      round4.style.display = "block";
+    }
+  }
+}
 
 function checkRed() {
   if (
@@ -347,6 +379,8 @@ function checkLower() {
       "#ff7373";
   }
 }
+
+function checkInside() {}
 
 function showingCard() {
   randomItem = deck[Math.floor(Math.random() * deck.length)];
