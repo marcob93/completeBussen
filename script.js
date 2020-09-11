@@ -290,12 +290,12 @@ function gameRound3() {
   if (this.id == "btnInside") {
     if (activePlayerCount < playerCount) {
       showingCard();
-
+      checkInside();
       deleteCard();
       nextPlayer();
     } else if (activePlayerCount == playerCount) {
       showingCard();
-
+      checkInside();
       deleteCard();
       nextPlayerRound();
       round3.style.display = "none";
@@ -380,7 +380,28 @@ function checkLower() {
   }
 }
 
-function checkInside() {}
+function checkInside() {
+  if (
+    (lastCard.valueDeck > player[activePlayerCount].cards[0].valueDeck &&
+      lastCard.valueDeck < player[activePlayerCount].cards[1].valueDeck) ||
+    (lastCard.valueDeck < player[activePlayerCount].cards[0].valueDeck &&
+      lastCard.valueDeck > player[activePlayerCount].cards[1].valueDeck)
+  ) {
+    document.getElementById(activePlayerCount).style.backgroundColor =
+      "#a3ffa9";
+  } else if (
+    lastCard.valueDeck == player[activePlayerCount].cards[0].valueDeck ||
+    lastCard.valueDeck == player[activePlayerCount].cards[1].valueDeck
+  ) {
+    document.getElementById(activePlayerCount).style.backgroundColor =
+      "#ff7373";
+  } else {
+    document.getElementById(activePlayerCount).style.backgroundColor =
+      "#ff7373";
+  }
+}
+
+function checkOutside() {}
 
 function showingCard() {
   randomItem = deck[Math.floor(Math.random() * deck.length)];
