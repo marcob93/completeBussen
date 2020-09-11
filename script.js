@@ -447,4 +447,5 @@ function nextPlayerRound() {
   }
 }
 
-//comment for jokes and laughs
+// Comment for jokes and laughs
+// Have a nice day!
