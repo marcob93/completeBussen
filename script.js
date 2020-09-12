@@ -65,6 +65,13 @@ function theGameBegins() {
   document.getElementById("btnLower").addEventListener("click", gameRound2);
   document.getElementById("btnInside").addEventListener("click", gameRound3);
   document.getElementById("btnOutside").addEventListener("click", gameRound3);
+  document.getElementById("btnInside").addEventListener("click", gameRound3);
+  document.getElementById("btnOutside").addEventListener("click", gameRound3);
+  document.getElementById("btnHearts").addEventListener("click", gameRound4);
+  document.getElementById("btnDiamonds").addEventListener("click", gameRound4);
+  document.getElementById("btnSpades").addEventListener("click", gameRound4);
+  document.getElementById("btnClubs").addEventListener("click", gameRound4);
+  document.getElementById("btnRainbow").addEventListener("click", gameRound4);
 }
 
 function card(suiteDeck, valueDeck) {
@@ -183,7 +190,7 @@ function createContentNavigatie() {
   let buttonHearts = document.createElement("BUTTON");
   let buttonHeartsText = document.createTextNode("Harten");
   buttonHearts.appendChild(buttonHeartsText);
-  buttonHearts.classList.add("allButton");
+  buttonHearts.classList.add("allButtonFive");
   buttonHearts.setAttribute("id", "btnHearts");
   round4.appendChild(buttonHearts);
 
@@ -306,12 +313,12 @@ function gameRound3() {
   if (this.id == "btnOutside") {
     if (activePlayerCount < playerCount) {
       showingCard();
-
+      checkOutside();
       deleteCard();
       nextPlayer();
     } else if (activePlayerCount == playerCount) {
       showingCard();
-
+      checkOutside();
       deleteCard();
       nextPlayerRound();
       round3.style.display = "none";
@@ -401,7 +408,26 @@ function checkInside() {
   }
 }
 
-function checkOutside() {}
+function checkOutside() {
+  if (
+    (lastCard.valueDeck < player[activePlayerCount].cards[0].valueDeck &&
+      lastCard.valueDeck > player[activePlayerCount].cards[1].valueDeck) ||
+    (lastCard.valueDeck > player[activePlayerCount].cards[0].valueDeck &&
+      lastCard.valueDeck < player[activePlayerCount].cards[1].valueDeck)
+  ) {
+    document.getElementById(activePlayerCount).style.backgroundColor =
+      "#a3ffa9";
+  } else if (
+    lastCard.valueDeck == player[activePlayerCount].cards[0].valueDeck ||
+    lastCard.valueDeck == player[activePlayerCount].cards[1].valueDeck
+  ) {
+    document.getElementById(activePlayerCount).style.backgroundColor =
+      "#ff7373";
+  } else {
+    document.getElementById(activePlayerCount).style.backgroundColor =
+      "#ff7373";
+  }
+}
 
 function showingCard() {
   randomItem = deck[Math.floor(Math.random() * deck.length)];
@@ -446,6 +472,3 @@ function nextPlayerRound() {
     nextPlayerContentCount++;
   }
 }
-
-// Comment for jokes and laughs
-// Have a nice day!
