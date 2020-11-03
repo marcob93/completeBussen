@@ -395,37 +395,43 @@ function checkInside() {
       lastCard.valueDeck > player[activePlayerCount].cards[1].valueDeck)
   ) {
     document.getElementById(activePlayerCount).style.backgroundColor =
-      "#a3ffa9";
+      "#a3ffa9"; //green
   } else if (
     lastCard.valueDeck == player[activePlayerCount].cards[0].valueDeck ||
     lastCard.valueDeck == player[activePlayerCount].cards[1].valueDeck
   ) {
     document.getElementById(activePlayerCount).style.backgroundColor =
-      "#ff7373";
+      "#ff7373"; //red
   } else {
     document.getElementById(activePlayerCount).style.backgroundColor =
-      "#ff7373";
+      "#ff7373"; //red
   }
 }
 
 function checkOutside() {
   if (
-    (lastCard.valueDeck < player[activePlayerCount].cards[0].valueDeck &&
-      lastCard.valueDeck > player[activePlayerCount].cards[1].valueDeck) ||
     (lastCard.valueDeck > player[activePlayerCount].cards[0].valueDeck &&
-      lastCard.valueDeck < player[activePlayerCount].cards[1].valueDeck)
+      lastCard.valueDeck < player[activePlayerCount].cards[1].valueDeck) ||
+    (lastCard.valueDeck < player[activePlayerCount].cards[0].valueDeck &&
+      lastCard.valueDeck > player[activePlayerCount].cards[1].valueDeck)
   ) {
     document.getElementById(activePlayerCount).style.backgroundColor =
-      "#a3ffa9";
+      "#ff7373"; //red
   } else if (
     lastCard.valueDeck == player[activePlayerCount].cards[0].valueDeck ||
     lastCard.valueDeck == player[activePlayerCount].cards[1].valueDeck
   ) {
     document.getElementById(activePlayerCount).style.backgroundColor =
-      "#ff7373";
+      "#ff7373"; //red
+  } else if (
+    player[activePlayerCount].cards[0].valueDeck ==
+    player[activePlayerCount].cards[1].valueDeck
+  ) {
+    document.getElementById(activePlayerCount).style.backgroundColor =
+      "#ff7373"; //red
   } else {
     document.getElementById(activePlayerCount).style.backgroundColor =
-      "#ff7373";
+      "#a3ffa9"; //green
   }
 }
 
